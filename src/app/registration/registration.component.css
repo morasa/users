@@ -1,0 +1,32 @@
+.form-gap{
+    position: relative;
+    top: 10px;
+}
+
+.bnt-center{
+    padding-left: 50%;
+}
+
+i{
+    padding: 5px;
+}
+
+i.fa-edit{
+    color:black;
+    cursor: pointer;
+}
+i.fa-edit:hover{
+    color: blue;
+}
+
+i.fa-trash{
+    cursor: pointer;
+    color:black;
+}
+.button-save{
+    position: relative;
+    left: 6px;
+}
+i.fa-trash:hover{
+    color: red;
+}

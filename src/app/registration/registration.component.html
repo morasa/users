@@ -1,0 +1,84 @@
+<div class="row form-gap">
+    <div class="col-md-4">
+      
+        <form [formGroup]="userForm">
+            <div class="form-group row">
+              <label for="fullName"  class="col-sm-4 col-form-label">Full Name</label>
+              <div class="col-sm-8">
+                <input type="text" formControlName="fullname" class="form-control" id="fullName">
+              </div>
+            </div>
+            <div class="form-group row">
+                <label for="gender" class="col-sm-4 col-form-label">Gender</label>
+                <div class="col-sm-8">
+                  <select formControlName="gender" class="form-control" id="gender">
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                    <option value="o">Other</option>
+                  </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="married" class="col-sm-4 col-form-label">Married</label>
+                <div class="col-sm-8">
+                  <select formControlName="married" class="form-control" id="married">
+                      <option value="yes"> Yes </option>
+                      <option value="no"> No </option>
+                      <option value="div"> Other </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="phone" class="col-sm-4 col-form-label">Phone</label>
+                <div class="col-sm-8">
+                  <input type="text" formControlName="phone" class="form-control" id="phone">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                  <input type="text" formControlName="email" class="form-control" id="email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password" class="col-sm-4 col-form-label">Password</label>
+                <div class="col-sm-8">
+                  <input type="text" formControlName="password" class="form-control" id="password">
+                </div>
+            </div>
+            <div class="form-group row bnt-center">
+                <button *ngIf="!editMode" class="btn btn-sm btn-primary" (click)="saveForm()"> Add User </button>
+                <button *ngIf="editMode" class="btn btn-sm btn-success button-save" (click)="updateForm()"> Save User </button>
+            </div>
+            
+        </form>
+    </div>
+    <div class="col-md-8">
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Married</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of userData">
+                <td>{{user.fullname}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.married}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                  <i class="fa fa-edit" (click)="editForm(user)"></i> 
+                  <i class="fa fa-trash" (click)="deleteForm(user.rec_id)"></i>
+                </td>
+              </tr>           
+            </tbody>
+          </table>
+    </div>
+</div>
